@@ -15,7 +15,7 @@ This plugin was inspired by Paypal Shortcodes by Pixline.
 
 Author: Charly Leetham
 
-Version: 0.1
+Version: 0.2
 
 Author URI: http://askcharlyleetham.com
 
@@ -39,7 +39,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 define('TWPW_NAME', 'Enhanced Paypal Shortcodes');	// Name of the Plugin
 
-define('TWPW_VERSION', '0.1');			// Current version of the Plugin
+define('TWPW_VERSION', '0.2');			// Current version of the Plugin
 
 define("ALT_ADD","Add to cart (Paypal)");	// alternate text for "Add to cart" image
 
