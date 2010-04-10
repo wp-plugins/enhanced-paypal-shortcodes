@@ -59,22 +59,22 @@ For PayNow and Subscribe Buttons:
 
 email = the email address of the paypal account
 
-item_no = A unique identifier for your product / service
+itemno = A unique identifier for your product / service
 
 name = Description of product / service
 
-no_shipping = Prompt for Shipping address
+noshipping = Prompt for Shipping address
       0 is prompt, but don't require
       1 is don't prompt 
       2 is prompt and require the shipping address
       defaults to 0
 
-no_note = Prompt payers to include a note (Paynow buttons only)
+nonote = Prompt payers to include a note (Paynow buttons only)
       0 is show the note box and prompt the user
       1 is hide the note box and do not prompt the user
       defaults to 0
 
-currency_code = The currency for the transaction
+currencycode = The currency for the transaction
       Australian Dollar AUD
       Canadian Dollar CAD
       Czech Koruna CZK
@@ -173,7 +173,7 @@ The plugin will wrap the paypal button in a <div> tag.  The formatting options a
 divwidth = the width of the div.  This should be at least the width of the image.
 Default - 100%
 
-text-align = the alignment of the image / text within the div
+textalign = the alignment of the image / text within the div
 Allowable values:
 left - text is left justified
 right - text is right justified
@@ -186,28 +186,28 @@ left - the div 'floats' on the left
 right - the div 'floats' on the right
 Default - if this value is missing, the div is centered on the page
 
-margin-left = the amount of space between the div and the text to the left of the div (particularly good to use when using float=right)
+marginleft = the amount of space between the div and the text to the left of the div (particularly good to use when using float=right)
 Default - if this value is missing, the page format is used
 
-margin-right = the amount of space between the div and the text to the right of the div
+marginright = the amount of space between the div and the text to the right of the div
 (particularly good to use when using float=left)
 Default - if this value is missing, the page format is used
 
-margin-top = the amount of space to the line above the div
+margintop = the amount of space to the line above the div
 Default = 10px;
 
-margin-bottom = the amount of space to the line below the div
+marginbottom = the amount of space to the line below the div
 Default = 10px;
 
 Sample Usage:
 
 Buy Now Button:
 
-[paypal type="paynow" amount="12.99" email="payments@arvoreentreasures.com" item_no="12345657" name="Description" no_shipping="1" no_note="1" currency_code="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode" imagewidth="100px"]
+[paypal type="paynow" amount="12.99" email="payments@arvoreentreasures.com" itemno="12345657" name="Description" noshipping="1" no_note="1" currencycode="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode" imagewidth="100px"]
 
 Subscribe Button with 2 trial periods and recurring Monthly payments.
 
-[paypal type="subscribe" email="payments@arvoreentreasures.com" item_no="12345657" name="Description" no_shipping="1" currency_code="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" a1="1" p1="7" t1="D" a2="3" p2="1" t3="M" a3="47" p3="1" t3="M" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode" imagewidth="100px"]
+[paypal type="subscribe" email="payments@arvoreentreasures.com" itemno="12345657" name="Description" noshipping="1" currencycode="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" a1="1" p1="7" t1="D" a2="3" p2="1" t3="M" a3="47" p3="1" t3="M" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode" imagewidth="100px"]
 
 Hosted Button
 [paypal type="hosted" buttonid="1234456" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"]
@@ -231,8 +231,8 @@ None
 == Changelog ==
 
 0.1 - Initial release
-0.2 - Updated 22 February 2010 to include hosted buttons and fix some formatting issues
+0.2 - Updated 22 February 2010 to include hosted buttons and fix some formatting issues0.3 - Updated 10 April 2010 to fix typos
 
 == Upgrade Notice ==
 
-0.2 - adds hosted paypal buttons support and formatting works correctly.
+0.2 - adds hosted paypal buttons support and formatting works correctly.0.3 - required, certain typos in code caused problems with button creation.

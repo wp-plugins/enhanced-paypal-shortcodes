@@ -15,7 +15,7 @@ This plugin was inspired by Paypal Shortcodes by Pixline.
 
 Author: Charly Leetham
 
-Version: 0.2
+Version: 0.3
 
 Author URI: http://askcharlyleetham.com
 
@@ -39,7 +39,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 define('TWPW_NAME', 'Enhanced Paypal Shortcodes');	// Name of the Plugin
 
-define('TWPW_VERSION', '0.2');			// Current version of the Plugin
+define('TWPW_VERSION', '0.3');			// Current version of the Plugin
 
 define("ALT_ADD","Add to cart (Paypal)");	// alternate text for "Add to cart" image
 
@@ -66,22 +66,22 @@ For PayNow and Subscribe Buttons:
 
 email = the email address of the paypal account
 
-item_no = A unique identifier for your product / service
+itemno = A unique identifier for your product / service
 
 name = Description of product / service
 
-no_shipping = Prompt for Shipping address
+noshipping = Prompt for Shipping address
       0 is prompt, but don't require
       1 is don't prompt 
       2 is prompt and require the shipping address
       defaults to 0
 
-no_note = Prompt payers to include a note (Paynow buttons only)
+nonote = Prompt payers to include a note (Paynow buttons only)
       0 is show the note box and prompt the user
       1 is hide the note box and do not prompt the user
       defaults to 0
 
-currency_code = The currency for the transaction
+currencycode = The currency for the transaction
       Australian Dollar AUD
       Canadian Dollar CAD
       Czech Koruna CZK
@@ -193,17 +193,17 @@ left - the div 'floats' on the left
 right - the div 'floats' on the right
 Default - if this value is missing, the div is centered on the page
 
-margin-left = the amount of space between the div and the text to the left of the div (particularly good to use when using float=right)
+marginleft = the amount of space between the div and the text to the left of the div (particularly good to use when using float=right)
 Default - if this value is missing, the page format is used
 
-margin-right = the amount of space between the div and the text to the right of the div
+marginright = the amount of space between the div and the text to the right of the div
 (particularly good to use when using float=left)
 Default - if this value is missing, the page format is used
 
-margin-top = the amount of space to the line above the div
+margintop = the amount of space to the line above the div
 Default = 10px;
 
-margin-bottom = the amount of space to the line below the div
+marginbottom = the amount of space to the line below the div
 Default = 10px;
 
 
@@ -212,11 +212,11 @@ Default = 10px;
 Sample Usage:
 
 Buy Now Button:
-[paypal type="paynow" amount="12.99" email="payments@arvoreentreasures.com" item_no="12345657" name="Description" no_shipping="1" no_note="1" currency_code="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode" ]
+[paypal type="paynow" amount="12.99" email="payments@arvoreentreasures.com" itemno="12345657" name="Description" noshipping="1" no_note="1" currencycode="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode" ]
 
 
 Subscribe Button with 2 trial periods and recurring Monthly payments.
-[paypal type="subscribe" email="payments@arvoreentreasures.com" item_no="12345657" name="Description" no_shipping="1" currency_code="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" a1="1" p1="7" t1="D" a2="3" p2="1" t3="M" a3="47" p3="1" t3="M" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode"]
+[paypal type="subscribe" email="payments@arvoreentreasures.com" itemno="12345657" name="Description" noshipping="1" currencycode="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" a1="1" p1="7" t1="D" a2="3" p2="1" t3="M" a3="47" p3="1" t3="M" rm="2" notifyurl="http://notifyurl.com" notifyurl2="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode"]
 
 Hosted Button
 [paypal type="hosted" buttonid="1234456" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"]
@@ -272,8 +272,8 @@ switch($atts['type']):
 	<input type="image" src="https://www.paypal.com/en_US/i/scr/pixel.gif" border="0" alt="" width="1" height="1">
 	<input type="hidden" name="bn" value="PP-BuyNowBF" />
 	<input type="hidden" name="business" value="'.$atts[email].'">
-	<input type="hidden" name="currency_code" value="'.$atts[currency_code].'">
-	<input type="hidden" name="item_number" value="'.$atts['item_no'].'">
+	<input type="hidden" name="currency_code" value="'.$atts[currencycode].'">
+	<input type="hidden" name="item_number" value="'.$atts['itemno'].'">
 	<input type="hidden" name="item_name" value="'.$atts['name'].'">
 	<input type="hidden" name="amount" value="'.$atts['amount'].'">';
         if ($atts['imageurl']) { 
@@ -286,14 +286,14 @@ switch($atts['type']):
                 $code.='<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="'.ALT_ADD.'">';
          }
 
-         if ($atts['no_shipping'] > -1) { 
+         if ($atts['noshipping'] > -1) { 
                 $code.='
-		<input type="hidden" name="no_shipping" value="'.$atts['no_shipping'].'">';
+		<input type="hidden" name="no_shipping" value="'.$atts['noshipping'].'">';
          } 
 
-         if ($atts['no_note'] > -1) { 
+         if ($atts['nonote'] > -1) { 
 		$code.='
-                <input type="hidden" name="no_note" value="'.$atts['no_note'].'" />';
+                <input type="hidden" name="no_note" value="'.$atts['nonote'].'" />';
          }
 
          if ($atts['rm'] > -1) { 
@@ -373,11 +373,11 @@ case "subscribe":
         }
 
         if ($atts['currency_code']) {
-  	     $code.='<input type="hidden" name="currency_code" value="'.$atts[currency_code].'">';
+  	     $code.='<input type="hidden" name="currency_code" value="'.$atts[currencycode].'">';
         }
 
         if ($atts['item_number']) {
-	     $code.='<input type="hidden" name="item_number" value="'.$atts['item_no'].'">';
+	     $code.='<input type="hidden" name="item_number" value="'.$atts['itemno'].'">';
         }
 
         if ($atts['name']) {
@@ -389,7 +389,7 @@ case "subscribe":
         }
 
         if ($atts['no_shipping'] >-1 ) {
- 	    $code.='<input type="hidden" name="no_shipping" value="'.$atts['no_shipping'].'" />';
+ 	    $code.='<input type="hidden" name="no_shipping" value="'.$atts['noshipping'].'" />';
         }
 
 	$code.='<input type="hidden" name="no_note" value="1" />';
