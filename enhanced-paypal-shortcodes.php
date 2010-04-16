@@ -15,7 +15,7 @@ This plugin was inspired by Paypal Shortcodes by Pixline.
 
 Author: Charly Leetham
 
-Version: 0.3
+Version: 0.4
 
 Author URI: http://askcharlyleetham.com
 
@@ -39,7 +39,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 define('TWPW_NAME', 'Enhanced Paypal Shortcodes');	// Name of the Plugin
 
-define('TWPW_VERSION', '0.3');			// Current version of the Plugin
+define('TWPW_VERSION', '0.4');			// Current version of the Plugin
 
 define("ALT_ADD","Add to cart (Paypal)");	// alternate text for "Add to cart" image
 
@@ -115,7 +115,7 @@ notifyurl2 = Allowance for a 2nd notify url. Often needed when using IPN and an 
 If this parameter is not used, no notifyurl value is added to the button
 
 returnurl = The URL to which the payer’s browser is redirected after completing the payment; for example, a URL on your site that displays a “Thank you for your payment” page.
-Default – The browser is redirected to a PayPal web page.
+Default – The browser is redirected to a PayPal web page.cancelurl = The URL to which the payer’s browser is redirected if the purchaser cancels the process;
 
 scriptcode = the link to any script code that you may need to include.  e.g For Jrox JAM, some script code is added to the paypal buttons. Usage /foldername/scriptcode.php
 
@@ -312,7 +312,7 @@ switch($atts['type']):
         if ($atts['returnurl']) { 
 		$code.='<input type="hidden" name="return" value="'.$atts['returnurl'].'">';
         }
-
+        if ($atts['cancelurl']) {	    $code.='<input type="hidden" name="cancel_return" value="'.$atts['cancelurl'].'">';        }	
        if ($atts['scriptcode']) { 
                 $code.='<script src="'.$atts['scriptcode'].'" type="text/javascript"></script>';
        }
@@ -372,11 +372,11 @@ case "subscribe":
              $code.='<input type="hidden" name="business" value="'.$atts[email].'">';
         }
 
-        if ($atts['currency_code']) {
+        if ($atts['currencycode']) {
   	     $code.='<input type="hidden" name="currency_code" value="'.$atts[currencycode].'">';
         }
 
-        if ($atts['item_number']) {
+        if ($atts['itemno']) {
 	     $code.='<input type="hidden" name="item_number" value="'.$atts['itemno'].'">';
         }
 
@@ -388,7 +388,7 @@ case "subscribe":
   	    $code.='<input type="hidden" name="amount" value="'.$atts['amount'].'">';
         }
 
-        if ($atts['no_shipping'] >-1 ) {
+        if ($atts['noshipping'] >-1 ) {
  	    $code.='<input type="hidden" name="no_shipping" value="'.$atts['noshipping'].'" />';
         }
 
@@ -471,7 +471,7 @@ case "subscribe":
 
         if ($atts['returnurl']) {
 	    $code.='<input type="hidden" name="return" value="'.$atts['returnurl'].'">';
-        }
+        }		        if ($atts['cancelurl']) {	    $code.='<input type="hidden" name="cancel_return" value="'.$atts['cancelurl'].'">';        }		
 
         if ($atts['scriptcode']) { 
             $code.='<script src="'.$atts['scriptcode'].'" type="text/javascript"></script>';
