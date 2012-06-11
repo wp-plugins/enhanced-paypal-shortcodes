@@ -6,7 +6,7 @@ You should have received a copy of the GNU General Public Licensealong with thi
 1. Install Enhanced Paypal Shortcodes from the Wordpress Repository
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Place [paypal type="paynow" amount="12.99" email="payments@arvoreentreasures.com" itemno="12345657" name="Description" noshipping="1" nonote="1" currencycode="USD" imageurl="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" rm="2" notifyurl="http://notifyurl.com" returnurl="http://returnurl.com" scriptcode="scriptcode" imagewidth="100px"]in your post or page where you want your button to appear
-== Frequently Asked Questions ==View Frequently asked questions at:http://thewordpresswarrior.com/wordpress-plugin-enhanced-paypal-shortcodes/= What about foo bar? =
+== Frequently Asked Questions ==View Frequently asked questions at:http://thewpwarrior.com/wordpress-plugin-enhanced-paypal-shortcodes/= What about foo bar? =
 == Screenshots ==
 None
 == Changelog ==
