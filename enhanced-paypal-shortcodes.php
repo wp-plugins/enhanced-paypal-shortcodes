@@ -4,7 +4,7 @@
 
 Plugin Name: Enhanced Paypal Shortcodes
 
-Plugin URI: http://thewordpresswarrior.com/596/enhanced-paypal-shortcodes
+Plugin URI: http://thewpwarrior.com/596/enhanced-paypal-shortcodes
 
 Description:  Use shortcodes to easily embed a fully functional paypal button on your wordpress website. 
 
